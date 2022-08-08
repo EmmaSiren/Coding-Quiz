@@ -1,0 +1,112 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Century Gothic', 'Malgun Gothic', 'Lucida Console', 'Lucida Sans', Arial, Helvetica, sans-serif;
+  background-color: #f9fbfd;
+}
+
+.wrapper {
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  padding-top: 0px;
+  color: hsl(335, 100%, 60%);
+}
+
+.card {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  border-width: 1px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+  color: rgb(255, 111, 195);
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 30px 40px;
+  text-align:
+}
+
+.card-header {
+    text-align: center;
+}
+
+.card-header::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  background: #e7e9eb;
+  height: 2px;
+}
+
+.card-body {
+  min-height: 100px;
+}
+
+.card-footer {
+  text-align: center;
+}
+
+.card-footer::before {
+  content: " ";
+  display: block;
+  width: 100%;
+  background: #e7e9eb;
+  height: 2px;
+}
+
+.btn, .option {
+  border: none;
+  background-color: rgb(255, 111, 195);
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'Century Gothic', 'Malgun Gothic', 'Lucida Console', 'Lucida Sans', Arial, Helvetica, sans-serif;
+  margin: 16px 16px 16px 20px;
+  padding: 14px 34px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover, .option:hover {
+    box-shadow: inset 0px 0px 15px rgb(170, 14, 131);
+    transform: scale(1.1);
+}
+
+/* button[disabled] {
+  cursor: default;
+  background: #c0c7cf;
+} */
+.options-container {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
