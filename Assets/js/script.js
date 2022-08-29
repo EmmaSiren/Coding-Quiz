@@ -1,73 +1,70 @@
 var questionCard = document.querySelector('#question');
-var question = document.createElement('h1');
 var optionSection = document.querySelector(".options");
 
 
 var questionsArray = [
     {
-        title: "What's Up?1", 
-        options: ["Choice1", "Choice2", "Choice3", "Choice4"],
-        correctAnswer: "Choice2"
+        question: "What's Up?1", 
+        options: ["Option1", "Option2", "Option3", "Option4"],
+        answer: "Option2"
     }, 
     {
-        title: "What's Up?2", 
-        options: ["Choice5", "Choice6", "Choice7", "Choice8"],
-        correctAnswer: "Choice2"
+        question: "What's Up?2", 
+        options: ["Option5", "Option6", "Option7", "Option8"],
+        answer: "Option6"
     }, 
     {
-        title: "What's Up?3", 
-        options: ["Choice9", "Choice10", "Choice11", "Choice12"],
-        correctAnswer: "Choice2"
+        question: "What's Up?3", 
+        options: ["Option9", "Option10", "Option11", "Option12"],
+        answer: "Option10"
     }, 
     {
-        title: "What's Up?4", 
-        options: ["Choice13", "Choice14", "Choice15", "Choice16"],
-        correctAnswer: "Choice2"
+        question: "What's Up?4", 
+        options: ["Option13", "Option14", "Option15", "Option16"],
+        answer: "Option14"
     }, 
     {
-        title: "What's Up?5", 
-        options: ["Choice17", "Choice18", "Choice19", "Choice20"],
-        correctAnswer: "Choice2"
+        question: "What's Up?5", 
+        options: ["Option17", "Option18", "Option19", "Option20"],
+        answer: "Option18"
     }
 ];
 
-question.textContent = questionsArray[0].title
-questionCard.appendChild(question);
+// var sample = questionsArray[0].question;
+// console.log(sample);
+// question.textContent = questionsArray[0].question
+// questionCard.appendChild(question);
+
+
 
 // Cannot use normal for loop because that only loops through one array
 // forEach loops through properties of an object
 questionsArray[0].options.forEach(myFunction);
 
 function myFunction(option) {
+    var question = document.createElement('h1');
     var optionButtons = document.createElement('button');
+
+    question.textContent = option;
+    questionCard.appendChild(question);
+
     optionButtons.textContent = option;
     optionSection.appendChild(optionButtons);
 
+    // optionButtons.addEventListener("click", nextQuestion);
 
-    optionButtons.addEventListener("click", nextQuestion);
+    // function nextQuestion() {
+    //      console.log("hello");
 
+    //      var sample = questionsArray[0].question;
 
-};
+    //      for (i = 0; i < sample; i++) {
+    //          question.textContent = questionsArray[i];
+    //          questionCard.appendChild(question);
 
+    //      };
+    // };
 
-
-function nextQuestion() {
-    questionsArray[1].options.forEach(myFunction);
-    optionSection.removeChild(optionButtons);
-    function myFunction(option){
-    question.textContent = questionsArray[1].title;
-
-    var optionButtons = document.createElement('button');
-    optionButtons.textContent = option;
-    optionSection.appendChild(optionButtons);
-  
-    optionButtons.addEventListener("click", nextQuestion1);
-};
-
-};
-
-function nextQuestion1(){
-    console.log("hello");
 };
 
 // playGame();
