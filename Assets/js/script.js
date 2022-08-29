@@ -1,6 +1,8 @@
 var questionCard = document.querySelector('#question');
 var optionSection = document.querySelector(".options");
 var question = document.createElement('h1');
+var counter = 0;
+var i = 0;
 
 
 var questionsArray = [
@@ -31,12 +33,14 @@ var questionsArray = [
     }
 ];
 
-question.textContent = questionsArray[0].question
-questionCard.appendChild(question);
+// question.textContent = questionsArray[i].question
+// questionCard.appendChild(question);
 
 // Cannot use normal for loop because that only loops through one array
 // forEach loops through properties of an object
-questionsArray[0].options.forEach(myFunction);
+function playGame() {
+
+questionsArray[i].options.forEach(myFunction);
 
 function myFunction(option) {
     // var question = document.createElement('h1');
@@ -45,6 +49,8 @@ function myFunction(option) {
     // console.log(sample);
     // question.textContent = sample;
     // questionCard.appendChild(question);
+    question.textContent = questionsArray[i].question
+    questionCard.appendChild(question);
 
     optionButtons.textContent = option;
     optionSection.appendChild(optionButtons);
@@ -64,21 +70,37 @@ function myFunction(option) {
     // };
 
 };
+};
 
 function nextQuestion() {
-    console.log("button");
-    console.log(questionsArray[0].answer);
-    console.log(myFunction.value);
-    if (myFunction.value == questionsArray[0].answer) {
-        console.log("Hurray!");
+    // console.log(this.innerText);
+    // console.log(questionsArray[0].answer);
+    if (this.innerText === questionsArray[i].answer) {
+        // alert("Correct!");
+        console.log("Correct");
+        counter++;
+        console.log(counter);
+    } else {
+        // alert("Incorrect");
+        console.log("Incorrect");
+
+    };
+    questionCard.innerHTML = "";
+    optionSection.innerHTML = "";
+
+    playGame(i++);
+};
+
+
+playGame();
+
+function score() {
+    if (i = 5) {
+        console.log(counter);
     };
 };
 
-// playGame();
-
 // location.replace("../high-scores.html");
 
-// var counter = 0;
-// counter++;
 // var questions = [true, false, false, true, true];
 // questions[counter];
