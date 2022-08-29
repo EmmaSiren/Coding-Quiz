@@ -40,11 +40,10 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
-  text-align:
 }
 
 .card-header {
-    text-align: center;
+  text-align: center;
 }
 
 .card-header::after {
