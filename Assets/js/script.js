@@ -1,6 +1,6 @@
 var questionCard = document.querySelector('#question');
 var question = document.createElement('h1');
-var optionsSection = document.querySelector(".options");
+var optionSection = document.querySelector(".options");
 
 
 var questionsArray = [
@@ -41,10 +41,34 @@ questionsArray[0].options.forEach(myFunction);
 function myFunction(option) {
     var optionButtons = document.createElement('button');
     optionButtons.textContent = option;
-    optionsSection.appendChild(optionButtons);
+    optionSection.appendChild(optionButtons);
+
+
+    optionButtons.addEventListener("click", nextQuestion);
+
+
 };
 
-myFunction.onClick = nextQuestion;
+
+
+function nextQuestion() {
+    questionsArray[1].options.forEach(myFunction);
+    optionSection.removeChild(optionButtons);
+    function myFunction(option){
+    question.textContent = questionsArray[1].title;
+
+    var optionButtons = document.createElement('button');
+    optionButtons.textContent = option;
+    optionSection.appendChild(optionButtons);
+  
+    optionButtons.addEventListener("click", nextQuestion1);
+};
+
+};
+
+function nextQuestion1(){
+    console.log("hello");
+};
 
 // playGame();
 
