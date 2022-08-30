@@ -10,6 +10,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: rgb(43, 46, 49);
 }
 
 body {
@@ -31,7 +32,7 @@ header {
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(230, 6%, 40%);
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
@@ -70,7 +71,7 @@ header {
   height: 2px;
 }
 
-.btn, .option {
+.btn, button {
   border: none;
   background-color: rgb(255, 111, 195);
   border-radius: 25px;
@@ -87,15 +88,11 @@ header {
   cursor: pointer;
 }
 
-.btn:hover, .option:hover {
+button:hover {
     box-shadow: inset 0px 0px 15px rgb(170, 14, 131);
     transform: scale(1.1);
 }
 
-/* button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
-} */
 .options-container {
     display: flex;
     justify-content: center;

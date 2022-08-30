@@ -33,48 +33,33 @@ var questionsArray = [
     }
 ];
 
-// question.textContent = questionsArray[i].question
-// questionCard.appendChild(question);
-
 // Cannot use normal for loop because that only loops through one array
 // forEach loops through properties of an object
 function playGame() {
+    if (i != 5) {
+    questionsArray[i].options.forEach(myFunction);
 
-questionsArray[i].options.forEach(myFunction);
+    function myFunction(option) {
+        var optionButtons = document.createElement('button');
+        // var sample = questionsArray[0].question;
+        // console.log(sample);
+        // question.textContent = sample;
+        // questionCard.appendChild(question);
+        question.textContent = questionsArray[i].question
+        questionCard.appendChild(question);
 
-function myFunction(option) {
-    // var question = document.createElement('h1');
-    var optionButtons = document.createElement('button');
-    // var sample = questionsArray[0].question;
-    // console.log(sample);
-    // question.textContent = sample;
-    // questionCard.appendChild(question);
-    question.textContent = questionsArray[i].question
-    questionCard.appendChild(question);
+        optionButtons.textContent = option;
+        optionSection.appendChild(optionButtons);
 
-    optionButtons.textContent = option;
-    optionSection.appendChild(optionButtons);
+        optionButtons.addEventListener("click", nextQuestion);
 
-    optionButtons.addEventListener("click", nextQuestion);
-
-    // function nextQuestion() {
-    //      console.log("hello");
-
-    //      var sample = questionsArray[0].question;
-
-    //      for (i = 0; i < sample; i++) {
-    //          question.textContent = questionsArray[i];
-    //          questionCard.appendChild(question);
-
-    //      };
-    // };
-
-};
+    };
+    } else {
+       score();
+    };
 };
 
 function nextQuestion() {
-    // console.log(this.innerText);
-    // console.log(questionsArray[0].answer);
     if (this.innerText === questionsArray[i].answer) {
         // alert("Correct!");
         console.log("Correct");
@@ -83,7 +68,6 @@ function nextQuestion() {
     } else {
         // alert("Incorrect");
         console.log("Incorrect");
-
     };
     questionCard.innerHTML = "";
     optionSection.innerHTML = "";
@@ -95,12 +79,38 @@ function nextQuestion() {
 playGame();
 
 function score() {
-    if (i = 5) {
-        console.log(counter);
+    question.textContent = "All Done!";
+    questionCard.appendChild(question);
+
+    var finalScore = document.createElement('h2');
+    var initials = document.createElement('input');
+    var submitInitials = document.createElement('input');
+    initials.setAttribute("type", "text");
+    submitInitials.setAttribute("type", "submit");
+    submitInitials.textContent = "Submit";
+
+    finalScore.textContent = "Great job! Your score: " + counter + ". " + "Enter your initials.";
+    optionSection.appendChild(finalScore);
+    optionSection.appendChild(initials);
+    optionSection.appendChild(submitInitials);
+    submitInitials.addEventListener("click", storeInitials);
+
+    console.log(counter);
+    localStorage.setItem("score", counter);
+
+    function storeInitials() {
+        // localStorage.setItem("initials", initials.value);
+        var sample = initials.value;
+        console.log(sample);
+        var scoresArray = [];
+        scoresArray.push(initials);
+        localStorage.setItem("initials", scoresArray);
+        console.log(scoresArray);
+
+        // location.replace("../high-scores.html");
     };
+
 };
 
-// location.replace("../high-scores.html");
 
-// var questions = [true, false, false, true, true];
 // questions[counter];
