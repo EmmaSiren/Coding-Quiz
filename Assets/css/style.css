@@ -31,6 +31,11 @@ header {
   color: hsl(335, 100%, 60%);
 }
 
+.timer {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
 .card {
   background-color: hsl(230, 6%, 40%);
   border-radius: 5px;
@@ -89,20 +94,23 @@ header {
 }
 
 button:hover {
-    box-shadow: inset 0px 0px 15px rgb(170, 14, 131);
-    transform: scale(1.1);
+  box-shadow: inset 0px 0px 15px rgb(170, 14, 131);
+  transform: scale(1.1);
 }
 
 .options-container {
-    display: flex;
-    justify-content: center;
-    align-items: left;
+  display: flex;
+  justify-content: center;
+  align-items: left;
 
 }
 
 .flex-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 
+.penalty {
+  color:hsl(0, 0%, 100%);
+}

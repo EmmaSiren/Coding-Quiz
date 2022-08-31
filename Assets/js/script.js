@@ -1,9 +1,29 @@
+var title = document.querySelector(".title");
+title.setAttribute("class", "timer");
 var questionCard = document.querySelector('#question');
 var optionSection = document.querySelector(".options");
 var question = document.createElement('h1');
 var counter = 0;
 var i = 0;
+var secondsLeft = 10;
 
+
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        title.textContent = "You have " + secondsLeft + " seconds left";
+
+        if(secondsLeft === 0 || secondsLeft < 0) {
+            clearInterval(timerInterval);
+            questionCard.innerHTML = "";
+            optionSection.innerHTML = "";
+            title.innerHTML = "";
+            score();
+        }
+    }, 1000);
+}
+
+setTime();
 
 var questionsArray = [
     {
@@ -36,6 +56,7 @@ var questionsArray = [
 // Cannot use normal for loop because that only loops through one array
 // forEach loops through properties of an object
 function playGame() {
+
     if (i != 5) {
     questionsArray[i].options.forEach(myFunction);
 
@@ -57,6 +78,7 @@ function playGame() {
     } else {
        score();
     };
+    
 };
 
 function nextQuestion() {
@@ -67,6 +89,8 @@ function nextQuestion() {
         console.log(counter);
     } else {
         // alert("Incorrect");
+        secondsLeft -= 5;
+        // title.classList.toggle("penalty");
         console.log("Incorrect");
     };
     questionCard.innerHTML = "";
@@ -95,22 +119,13 @@ function score() {
     optionSection.appendChild(submitInitials);
     submitInitials.addEventListener("click", storeInitials);
 
-    console.log(counter);
-    localStorage.setItem("score", counter);
-
     function storeInitials() {
-        // localStorage.setItem("initials", initials.value);
-        var sample = initials.value;
-        console.log(sample);
-        var scoresArray = [];
-        scoresArray.push(initials);
-        localStorage.setItem("initials", scoresArray);
-        console.log(scoresArray);
+        localStorage.setItem("initials", initials.value);
+        localStorage.setItem("score", counter);
 
-        // location.replace("../high-scores.html");
+        location.replace("../high-scores.html");
     };
-
 };
-
+ 
 
 // questions[counter];
