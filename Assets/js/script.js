@@ -6,14 +6,15 @@ var question = document.createElement('h1');
 var counter = 0;
 var i = 0;
 var secondsLeft = 10;
-
+var button = document.querySelector(".hideDiv1");
+var button2 = document.querySelector(".hideDiv2")
 
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         title.textContent = "You have " + secondsLeft + " seconds left";
 
-        if(secondsLeft === 0 || secondsLeft < 0) {
+        if(secondsLeft === 0 || secondsLeft < 0 || counter === 5) {
             clearInterval(timerInterval);
             questionCard.innerHTML = "";
             optionSection.innerHTML = "";
@@ -56,7 +57,6 @@ var questionsArray = [
 // Cannot use normal for loop because that only loops through one array
 // forEach loops through properties of an object
 function playGame() {
-
     if (i != 5) {
     questionsArray[i].options.forEach(myFunction);
 
@@ -78,7 +78,6 @@ function playGame() {
     } else {
        score();
     };
-    
 };
 
 function nextQuestion() {
@@ -90,9 +89,9 @@ function nextQuestion() {
     } else {
         // alert("Incorrect");
         secondsLeft -= 5;
-        // title.classList.toggle("penalty");
         console.log("Incorrect");
     };
+
     questionCard.innerHTML = "";
     optionSection.innerHTML = "";
 
@@ -105,27 +104,34 @@ playGame();
 function score() {
     question.textContent = "All Done!";
     questionCard.appendChild(question);
-
     var finalScore = document.createElement('h2');
+
+    if (counter >= 3) {
+    finalScore.textContent = "Great job! You scored " + counter + "! Enter your initials.";
+    } else {
+    finalScore.textContent = "Nice try. You scored " + counter + ". Enter your initials.";
+    };
+    
+    optionSection.appendChild(finalScore);
+
     var initials = document.createElement('input');
     var submitInitials = document.createElement('input');
     initials.setAttribute("type", "text");
     submitInitials.setAttribute("type", "submit");
     submitInitials.textContent = "Submit";
-
-    finalScore.textContent = "Great job! Your score: " + counter + ". " + "Enter your initials.";
-    optionSection.appendChild(finalScore);
     optionSection.appendChild(initials);
     optionSection.appendChild(submitInitials);
     submitInitials.addEventListener("click", storeInitials);
 
+
     function storeInitials() {
         localStorage.setItem("initials", initials.value);
         localStorage.setItem("score", counter);
-
-        location.replace("./high-scores.html");
+        finalScore.textContent = "Thank you " + initials.value + ".";
+        initials.value = "";
+        optionSection.removeChild(submitInitials);
+        button.classList.toggle("hideDiv1");
+        button2.classList.toggle("hideDiv2")
     };
 };
  
-
-// questions[counter];

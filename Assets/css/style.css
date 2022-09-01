@@ -76,6 +76,10 @@ header {
   height: 2px;
 }
 
+.hideDiv1, .hideDiv2 {
+  visibility: hidden;
+}
+
 .btn, button {
   border: none;
   background-color: rgb(255, 111, 195);
