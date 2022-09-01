@@ -1,56 +1,78 @@
-var title = document.querySelector(".title");
+var title = document.querySelector(".timer");
 title.setAttribute("class", "timer");
 var questionCard = document.querySelector('#question');
 var optionSection = document.querySelector(".options");
 var question = document.createElement('h1');
 var counter = 0;
 var i = 0;
-var secondsLeft = 10;
+var secondsLeft = 30;
 var button = document.querySelector(".hideDiv1");
-var button2 = document.querySelector(".hideDiv2")
+var button2 = document.querySelector(".hideDiv2");
 
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         title.textContent = "You have " + secondsLeft + " seconds left";
-
-        if(secondsLeft === 0 || secondsLeft < 0 || counter === 5) {
+        if(secondsLeft === 0 || secondsLeft < 0 || i === 5) {
             clearInterval(timerInterval);
-            questionCard.innerHTML = "";
-            optionSection.innerHTML = "";
             title.innerHTML = "";
             score();
         }
     }, 1000);
-}
+};
 
 setTime();
 
 var questionsArray = [
     {
-        question: "What's Up?1", 
-        options: ["Option1", "Option2", "Option3", "Option4"],
-        answer: "Option2"
+        question: "What does API stand for?", 
+        options: [
+            "Application Program Internet", 
+            "Application Programming Interface", 
+            "All Programming Interactions", 
+            "Application Property Interface"
+        ],
+        answer: "Application Programming Interface"
     }, 
     {
-        question: "What's Up?2", 
-        options: ["Option5", "Option6", "Option7", "Option8"],
-        answer: "Option6"
+        question: "Which is true of Web APIs?", 
+        options: [
+            "Web APIs use JavaScript to manipulate webpages", 
+            "Web APIs are built into the web browser", 
+            "Web APIs can change styling like CSS but through JavaScript", 
+            "All of the above"
+        ],
+        answer: "All of the above"
     }, 
     {
-        question: "What's Up?3", 
-        options: ["Option9", "Option10", "Option11", "Option12"],
-        answer: "Option10"
+        question: "What is the correct syntax for an array?", 
+        options: [
+            "[]", 
+            "{}", 
+            "()", 
+            "<>"
+        ],
+        answer: "[]"
     }, 
     {
-        question: "What's Up?4", 
-        options: ["Option13", "Option14", "Option15", "Option16"],
-        answer: "Option14"
+        question: "Which of the following is an object in JavaScript?", 
+        options: [
+            "null", 
+            "numbers", 
+            "strings", 
+            "arrays"
+        ],
+        answer: "Arrays"
     }, 
     {
-        question: "What's Up?5", 
-        options: ["Option17", "Option18", "Option19", "Option20"],
-        answer: "Option18"
+        question: "What does DOM stand for?", 
+        options: [
+            "Decode Objects Momentarily", 
+            "Document Object Manipulation", 
+            "Document Object Model", 
+            "Decoding Observation Method"
+        ],
+        answer: "Document Object Model"
     }
 ];
 
@@ -62,11 +84,7 @@ function playGame() {
 
     function myFunction(option) {
         var optionButtons = document.createElement('button');
-        // var sample = questionsArray[0].question;
-        // console.log(sample);
-        // question.textContent = sample;
-        // questionCard.appendChild(question);
-        question.textContent = questionsArray[i].question
+        question.textContent = questionsArray[i].question;
         questionCard.appendChild(question);
 
         optionButtons.textContent = option;
@@ -82,26 +100,21 @@ function playGame() {
 
 function nextQuestion() {
     if (this.innerText === questionsArray[i].answer) {
-        // alert("Correct!");
-        console.log("Correct");
         counter++;
-        console.log(counter);
     } else {
-        // alert("Incorrect");
         secondsLeft -= 5;
-        console.log("Incorrect");
     };
 
     questionCard.innerHTML = "";
     optionSection.innerHTML = "";
-
+    
     playGame(i++);
 };
 
-
-playGame();
-
 function score() {
+    var line = document.querySelector(".card-header");
+    line.classList.remove("card-header");
+
     question.textContent = "All Done!";
     questionCard.appendChild(question);
     var finalScore = document.createElement('h2');
@@ -109,7 +122,7 @@ function score() {
     if (counter >= 3) {
     finalScore.textContent = "Great job! You scored " + counter + "! Enter your initials.";
     } else {
-    finalScore.textContent = "Nice try. You scored " + counter + ". Enter your initials.";
+    finalScore.textContent = "You scored " + counter + ". Enter your initials.";
     };
     
     optionSection.appendChild(finalScore);
@@ -117,6 +130,7 @@ function score() {
     var initials = document.createElement('input');
     var submitInitials = document.createElement('input');
     initials.setAttribute("type", "text");
+    initials.setAttribute("class", "inputBox");
     submitInitials.setAttribute("type", "submit");
     submitInitials.textContent = "Submit";
     optionSection.appendChild(initials);
@@ -127,11 +141,13 @@ function score() {
     function storeInitials() {
         localStorage.setItem("initials", initials.value);
         localStorage.setItem("score", counter);
-        finalScore.textContent = "Thank you " + initials.value + ".";
-        initials.value = "";
+        finalScore.textContent = "Thank you " + initials.value + "!";
+        questionCard.removeChild(question);
         optionSection.removeChild(submitInitials);
+        optionSection.removeChild(initials);
         button.classList.toggle("hideDiv1");
-        button2.classList.toggle("hideDiv2")
+        button2.classList.toggle("hideDiv2");
     };
 };
- 
+
+playGame();

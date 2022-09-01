@@ -1,54 +1,38 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+* {
+  font-family: 'Century Gothic', 'Malgun Gothic', 'Lucida Console', 'Lucida Sans', Arial, Helvetica, sans-serif;
 }
 
 html,
 body,
 .wrapper {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(43, 46, 49);
+  background-color: rgb(49, 43, 49);
 }
 
 body {
-  font-family: 'Century Gothic', 'Malgun Gothic', 'Lucida Console', 'Lucida Sans', Arial, Helvetica, sans-serif;
-  background-color: #f9fbfd;
-}
-
-.wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
 }
 
 header {
+  font-size: 30px;
   text-align: center;
-  padding: 20px;
-  padding-top: 0px;
   color: hsl(335, 100%, 60%);
 }
 
 .timer {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: lighter;
 }
 
 .card {
   background-color: hsl(230, 6%, 40%);
-  border-radius: 5px;
-  border-width: 1px;
+  border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: rgb(255, 111, 195);
-  font-size: 18px;
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 30px 40px;
-}
-
-.card-header {
+  font-size: 20px;
+  padding: 30px;
   text-align: center;
 }
 
@@ -64,57 +48,98 @@ header {
   min-height: 100px;
 }
 
-.card-footer {
-  text-align: center;
+.btn {
+  background-color: rgb(255, 111, 195);
+  border-radius: 30px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 16px;
+  padding: 14px 34px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.card-footer::before {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
+button {
+  border: none;
+  background-color: rgb(255, 111, 195);
+  border-radius: 25px;
+  color: hsl(0, 0%, 100%);
+  font-size: 25px;
+  margin: 15px;
+  padding: 14px 30px;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  box-shadow: inset 0px 0px 15px rgb(170, 14, 131);
+  transform: scale(1.1);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBox {
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: hsl(0, 0%, 0%);
+  font-size: 30px;
+  margin: 15px;
+  padding: 14px 30px;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  background-color: rgb(255, 111, 195);
+  border-radius: 25px;
+  color: hsl(0, 0%, 100%);
+  font-size: 35px;
+  margin: 15px;
+  padding: 14px 30px;
+  cursor: pointer;
+}
+
+.card-footer {
+  text-align: center;
 }
 
 .hideDiv1, .hideDiv2 {
   visibility: hidden;
 }
 
-.btn, button {
-  border: none;
-  background-color: rgb(255, 111, 195);
-  border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
-  color: hsl(0, 0%, 100%);
-  display: inline-block;
-  font-size: 22px;
-  font-weight: bold;
-  font-family: 'Century Gothic', 'Malgun Gothic', 'Lucida Console', 'Lucida Sans', Arial, Helvetica, sans-serif;
-  margin: 16px 16px 16px 20px;
-  padding: 14px 34px;
+#title {
+  font-size: 100px;
+  margin: 0;
+}
+
+h3 {
+  font-size: 60px;
+  margin: 10px 0 0;
+}
+
+h3::before {
+  content: " ";
+  display: block;
+  width: 100%;
+  background: rgb(255, 111, 195);
+  height: 3px;
+  margin-top: -20px;
+  margin-bottom: 30px;
+}
+
+h3, #title {
+  color: rgb(255, 111, 195);
   text-align: center;
-  text-decoration: none;
-  cursor: pointer;
 }
 
-button:hover {
-  box-shadow: inset 0px 0px 15px rgb(170, 14, 131);
-  transform: scale(1.1);
-}
-
-.options-container {
-  display: flex;
-  justify-content: center;
-  align-items: left;
-
-}
-
-.flex-column {
+.scoresBox {
+  background-color: hsl(230, 6%, 40%);
+  border-radius: 20px;
+  padding: 20px 70px;
   display: flex;
   flex-direction: column;
-}
-
-
-.penalty {
-  color:hsl(0, 0%, 100%);
 }
