@@ -123,7 +123,7 @@ function score() {
         localStorage.setItem("initials", initials.value);
         localStorage.setItem("score", counter);
 
-        location.replace("../high-scores.html");
+        location.replace("./high-scores.html");
     };
 };
  
