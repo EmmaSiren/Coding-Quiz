@@ -72,6 +72,7 @@ button {
   cursor: pointer;
 }
 
+/* Makes buttons hover so user knows the button is "live" */
 button:hover, .btn:hover {
   box-shadow: inset 0px 0px 15px rgb(170, 14, 131);
   transform: scale(1.1);
@@ -107,6 +108,7 @@ input {
   text-align: center;
 }
 
+/* Hides Restart and Score buttons until removed when initials are submitted */
 .hideDiv1, .hideDiv2 {
   visibility: hidden;
 }

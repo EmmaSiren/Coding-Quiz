@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to CSS style sheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Coding Quiz</title>
 </head>
@@ -11,17 +12,23 @@
     <div class="wrapper">
         <header>
             <h1>Good Luck!</h1>
+            <!-- Displays the amount of time left for the quiz -->
             <h1 class="timer">You have 30 seconds left</h1>
         </header>
+        <!-- Box that houses questions and answer options -->
         <div class="card">
+            <!-- Questions go here -->
             <div class="card-header" id="question"></div>
+            <!-- Answer options go here -->
             <div class="options"></div>
+            <!-- Restart and scores link buttons hidden until initials are submitted -->
             <div class="card-footer">
                 <a href="./startPage.html" class="btn hideDiv1">Play Again?</a>
                 <a href="./scores.html" class="btn hideDiv2">High Scores</a>
             </div>
         </div>
     </div>
+    <!-- Link to quiz JS -->
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
