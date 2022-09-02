@@ -1,4 +1,4 @@
-// Function that pulls info from local storage and displays it on scores.html
+// Function that pulls info from local storage and displays it on screen
 function highScores() {
         // Variable that selects the element that will house the new data from local storage
         var counter = document.querySelector('#title');

@@ -73,7 +73,7 @@ button {
 }
 
 /* Makes buttons hover so user knows the button is "live" */
-button:hover, .btn:hover {
+button:hover, .btn:hover, input[type=submit]:hover {
   box-shadow: inset 0px 0px 15px rgb(170, 14, 131);
   transform: scale(1.1);
 }
